@@ -11,11 +11,11 @@ export const SushiListItem: React.FC<{ sushi: ISushi }> = ({ sushi }) => {
     return (
         <Item key={sushi.id}>
             <Item.Content>
-                <Item.Header as='a'>{sushi.name}</Item.Header>
+                <Item.Header as='a'>{sushi?.number} - {sushi.name}</Item.Header>
                 <Item.Description>
                     <div>{sushi.description}</div>
                     <div>
-                        {sushi.category}, {sushi.type}
+                        {sushi.category}
                     </div>
                 </Item.Description>
                 <Item.Extra>
@@ -23,15 +23,7 @@ export const SushiListItem: React.FC<{ sushi: ISushi }> = ({ sushi }) => {
                         as={Link} to={`/sushis/${sushi.id}`}
                         floated='right'
                         content='View'
-                        color='blue'
-                    />
-                    <Button
-                        name={sushi.id}
-                        loading={target === sushi.id && submitting}
-                        onClick={(e) => deleteSushi(e, sushi.id)}
-                        floated='right'
-                        content='Delete'
-                        color='red'
+                        color='brown'
                     />
                     <Label basic content={sushi.category} />
                 </Item.Extra>

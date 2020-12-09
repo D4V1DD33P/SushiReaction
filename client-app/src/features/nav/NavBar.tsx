@@ -9,7 +9,7 @@ const NavBar: React.FC = () => {
             <Container>
                 <Menu.Item header as={NavLink} exact to='/'>
                     <img src="/assets/logo.png" alt="logo" style={{ marginRight: '10px' }} />
-                    InteReact
+                    SushiReaction
                 </Menu.Item>
                 <Menu.Item name='Sushis' as={NavLink} to='/sushis' />
                 <Menu.Item>

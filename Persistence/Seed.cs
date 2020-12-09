@@ -17,15 +17,17 @@ namespace Persistence
                     {
                         Name = "Ouza",
                         Description = "All good inside",
-                        Category = "drinks",
-                        Type = "Paris",
+                        Category = "uramaki",
+                        Number = 62,
+                        Rating = 5
                     },
                     new Sushi
                     {
                         Name = "A+ Style",
                         Description = "Signature sushi",
-                        Category = "culture",
-                        Type = "Paris"
+                        Category = "nigiri",
+                        Number = 56,
+                        Rating = 4
                     }
                 };
                 context.Sushis.AddRange(sushis);

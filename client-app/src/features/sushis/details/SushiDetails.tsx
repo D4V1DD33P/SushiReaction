@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite'
 import React, { useContext, useEffect } from 'react'
 import { Link, RouteComponentProps } from 'react-router-dom'
-import { Button, Card, Image } from 'semantic-ui-react'
+import { Button, Card, Image, Rating } from 'semantic-ui-react'
 import { Loading } from '../../../app/layout/Loading'
 import SushiStore from '../../../app/stores/sushiStore'
 
@@ -25,10 +25,10 @@ const SushiDetails: React.FC<RouteComponentProps<DetailParams>> = ({match, histo
 
     return (
         <Card fluid>
-            <Image src={`/assets/categoryImages/${sushi!.category}.jpg`}
+            <Image src={`/assets/categoryImages/${sushi!.category}.png`}
                 wrapped ui={false} />
             <Card.Content>
-                <Card.Header>{sushi!.name}</Card.Header>
+                <Card.Header>{sushi!.name} <Rating icon='star' defaultRating={0} maxRating={5} style={{display: 'absolute', justifyContent: 'right'}} /> </Card.Header>
                 <Card.Description>
                     {sushi!.description}
                 </Card.Description>

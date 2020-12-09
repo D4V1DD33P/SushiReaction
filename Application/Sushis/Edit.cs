@@ -14,7 +14,8 @@ namespace Application.Sushis
             public string Name { get; set; }
             public string Description { get; set; }
             public string Category { get; set; }
-            public string Type { get; set; }
+            public int Number { get; set; }
+            public int Rating { get; set; }
         }
 
         public class Handler : IRequestHandler<Command>
@@ -36,7 +37,8 @@ namespace Application.Sushis
                 sushi.Name = request.Name ?? sushi.Name;
                 sushi.Description = request.Description ?? sushi.Description;
                 sushi.Category = request.Category ?? sushi.Category;
-                sushi.Type = request.Type ?? sushi.Type;
+                sushi.Number = request.Number;
+                sushi.Rating = request.Rating;
 
                 var success = await _context.SaveChangesAsync() > 0;
 

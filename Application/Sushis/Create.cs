@@ -15,7 +15,8 @@ namespace Application.Sushis
             public string Name { get; set; }
             public string Description { get; set; }
             public string Category { get; set; }
-            public string Type { get; set; }
+            public int Number { get; set; }
+            public int Rating { get; set; }
         }
 
         public class Handler : IRequestHandler<Command>
@@ -34,7 +35,8 @@ namespace Application.Sushis
                     Name = request.Name,
                     Description = request.Description,
                     Category = request.Category,
-                    Type = request.Type
+                    Number = request.Number,
+                    Rating = request.Rating
                 };
 
                 _context.Sushis.Add(sushi);

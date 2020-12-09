@@ -3,5 +3,6 @@ export interface ISushi {
     name: string; 
     description: string; 
     category: string; 
-    type: string; 
+    number: number; 
+    rating: number;
 }
