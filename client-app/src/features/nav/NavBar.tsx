@@ -11,9 +11,9 @@ const NavBar: React.FC = () => {
                     <img src="/assets/logo.png" alt="logo" style={{ marginRight: '10px' }} />
                     InteReact
                 </Menu.Item>
-                <Menu.Item name='Activities' as={NavLink} to='/activities' />
+                <Menu.Item name='Sushis' as={NavLink} to='/sushis' />
                 <Menu.Item>
-                    <Button as={NavLink} to='/createActivity' positive content='Create Activity'></Button>
+                    <Button as={NavLink} to='/createSushi' positive content='Create Sushi'></Button>
                 </Menu.Item>
             </Container>
         </Menu>

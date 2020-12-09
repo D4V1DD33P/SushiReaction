@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { IActivity } from '../models/activity';
+import { ISushi } from '../models/sushi';
 
 axios.defaults.baseURL = 'http://localhost:5000/api';
 
@@ -15,14 +15,14 @@ const requests = {
     del: (url: string) => axios.delete(url).then(sleep(1000)).then(responseBody)
 };
 
-const Activities = {
-    list: (): Promise<IActivity[]> => requests.get('/activities'),
-    details: (id: string) => requests.get(`/activities/${id}`),
-    create: (activity: IActivity) => requests.post('/activities', activity),
-    update: (activity: IActivity) => requests.put(`/activities/${activity.id}`, activity),
-    delete: (id: string) => requests.del(`/activities/${id}`)
+const Sushis = {
+    list: (): Promise<ISushi[]> => requests.get('/sushis'),
+    details: (id: string) => requests.get(`/sushis/${id}`),
+    create: (sushi: ISushi) => requests.post('/sushis', sushi),
+    update: (sushi: ISushi) => requests.put(`/sushis/${sushi.id}`, sushi),
+    delete: (id: string) => requests.del(`/sushis/${id}`)
 }
 
 export default {
-    Activities
+    Sushis
 } 

@@ -11,7 +11,7 @@ namespace Persistence
         {
             if(!context.Sushis.Any())
             {
-                var activities = new List<Sushi>
+                var sushis = new List<Sushi>
                 {
                     new Sushi
                     {
@@ -28,7 +28,7 @@ namespace Persistence
                         Type = "Paris"
                     }
                 };
-                context.Sushis.AddRange(activities);
+                context.Sushis.AddRange(sushis);
                 context.SaveChanges();
             }
         }
