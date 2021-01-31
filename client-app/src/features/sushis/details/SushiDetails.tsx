@@ -1,9 +1,10 @@
 import { observer } from "mobx-react-lite";
 import React, { useContext, useEffect } from "react";
 import { Link, RouteComponentProps } from "react-router-dom";
-import { Button, Card, Image, Rating } from "semantic-ui-react";
-import { Loading } from "../../../app/layout/Loading";
 import SushiStore from "../../../app/stores/sushiStore";
+import { Box, Skeleton, Badge, Image, Container, Text } from "@chakra-ui/react";
+import { StarIcon } from "@chakra-ui/icons";
+import SushiDetailedInfo from "./SushiDetailedInfo";
 
 interface DetailParams {
   id: string;
@@ -14,51 +15,19 @@ const SushiDetails: React.FC<RouteComponentProps<DetailParams>> = ({
   history,
 }) => {
   const sushiStore = useContext(SushiStore);
-  const { sushi, loadSushi, loadingInitial } = sushiStore;
+  const { sushi, loadSushi } = sushiStore;
 
   useEffect(() => {
     loadSushi(match.params.id);
   }, [loadSushi, match.params.id]);
 
-  if (loadingInitial || !sushi) return <Loading content="Loading sushi..." />;
+  if (!sushi) return <h2>Sushi not found</h2>;
 
-  return (
-    <Card fluid>
-      <Image
-        src={`/assets/categoryImages/${sushi!.category}.png`}
-        wrapped
-        ui={false}
-      />
-      <Card.Content>
-        <Card.Header>
-          {sushi!.name}{" "}
-          <Rating
-            icon="star"
-            defaultRating={0}
-            maxRating={5}
-            style={{ display: "absolute", justifyContent: "right" }}
-          />{" "}
-        </Card.Header>
-        <Card.Description>{sushi!.description}</Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <Button.Group variant="outline" spacing="5">
-          <Button
-            as={Link}
-            to={`/manage/${sushi.id}`}
-            color="blue"
-            content="Edit"
-          ></Button>
-          <Button
-            onClick={() => history.push("/sushis")}
-            basic
-            color="grey"
-            content="Cancel"
-          ></Button>
-        </Button.Group>
-      </Card.Content>
-    </Card>
-  );
+  return  (
+    <Skeleton isLoaded>
+      <SushiDetailedInfo sushi={sushi}></SushiDetailedInfo>
+    </Skeleton>
+  );;
 };
 
 export default observer(SushiDetails);
